@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import About from './pages/About/About';
 import Home from './pages/Home/Home';
+import Blog from './pages/Blog/Blog';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route exact path="/about">
           <About />
+        </Route>
+        <Route exact path="/blog">
+          <Blog />
         </Route>
         <Route>
           {"Not found"}
