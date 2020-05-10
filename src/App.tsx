@@ -1,11 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import About from "./pages/About/About";
-import Home from "./pages/Home/Home";
-import Blog from "./pages/Blog/Blog";
-import Contact from "./pages/Contact/Contact";
-import Portfolio from "./pages/Portfolio/Portfolio";
+import { About, Blog, Contact, Home, Portfolio } from "./pages/";
 
 function App() {
   return (
