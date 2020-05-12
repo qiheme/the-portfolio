@@ -1,6 +1,9 @@
-import { combineReducers } from '@reduxjs/toolkit'
+import { combineReducers } from '@reduxjs/toolkit';
+import currentDisplayReducer from './slices/lifecycleSlice';
 
-const rootReducer = combineReducers({})
+const rootReducer = combineReducers({
+  currentDisplay: currentDisplayReducer
+})
 
 export type RootState = ReturnType<typeof rootReducer>
 
