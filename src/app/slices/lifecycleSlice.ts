@@ -17,11 +17,15 @@ const currentDisplaySlice = createSlice({
     setCurrentPage(state, action: PayloadAction<string>) {
       state.page = action.payload
     },
+    setCurrentStatus(state, action: PayloadAction<CurrentDisplayState["status"]>) {
+      state.status = action.payload
+    },
   }
 })
 
 export const {
-  setCurrentPage
+  setCurrentPage,
+  setCurrentStatus
 } = currentDisplaySlice.actions
 
 export default currentDisplaySlice.reducer

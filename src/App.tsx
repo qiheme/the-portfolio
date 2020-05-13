@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux'
+import { connect, useSelector, useDispatch } from 'react-redux'
 import { RootState } from './app/rootReducer'
-import { setCurrentPage } from './app/slices/lifecycleSlice'
+import { setCurrentStatus } from './app/slices/lifecycleSlice'
 import "./App.css";
 import { About, Blog, Contact, Home, Portfolio } from "./pages/";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
-  const { page } = useSelector(
-    (state: RootState) => state.currentDisplay
-  );
+  // const { page } = useSelector(
+  //   (state: RootState) => state.currentDisplay
+  // );
+
+   // It takes a function
+   useEffect(() => {
+    // This gets called after every render, by default
+    // (the first one, and every one after that)
+    console.log('render!');
+
+    // If you want to implement componentWillUnmount,
+    // return a function from here, and React will call
+    // it prior to unmounting.
+    dispatch(setCurrentStatus('loaded'));
+  });
   return (
     <>
       <Router>
@@ -38,5 +50,14 @@ const App: React.FC = () => {
     </>
   );
 }
+
+// const mapStateToProps = function(state: RootState) {
+//   return {
+//     page: state.currentDisplay.page,
+//     status: state.currentDisplay.status
+//   }
+// }
+
+// export default connect(mapStateToProps)(App);
 
 export default App;
