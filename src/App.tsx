@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect, useSelector, useDispatch } from 'react-redux'
-import { RootState } from './app/rootReducer'
-import { setCurrentStatus } from './app/slices/lifecycleSlice'
+import { RootState } from './api/rootReducer'
 import "./App.css";
+import { updateAppStatus } from './api/actions/lifecycle';
 import { About, Blog, Contact, Home, Portfolio } from "./pages/";
 
 const App: React.FC = () => {
@@ -21,7 +21,7 @@ const App: React.FC = () => {
     // If you want to implement componentWillUnmount,
     // return a function from here, and React will call
     // it prior to unmounting.
-    dispatch(setCurrentStatus('loaded'));
+    dispatch(updateAppStatus('loaded'));
   });
   return (
     <>
