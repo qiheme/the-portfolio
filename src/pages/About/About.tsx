@@ -1,6 +1,10 @@
 import React from "react";
+import { useDispatch } from 'react-redux';
+import { updatePageStart } from '../../api/actions/lifecycle';
 
 function About() {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="fh5co-loader"></div>
@@ -12,7 +16,7 @@ function About() {
               <div className="row">
                 <div className="col-xs-2">
                   <div id="fh5co-logo">
-                    <a href="index.html">
+                    <a href="#" onClick={() => dispatch(updatePageStart("home"))}>
                       Air<span>.</span>
                     </a>
                   </div>
@@ -20,13 +24,13 @@ function About() {
                 <div className="col-xs-10 text-right menu-1">
                   <ul>
                     <li>
-                      <a href="index.html">Home</a>
+                      <a href="/">Home</a>
                     </li>
                     <li>
-                      <a href="portfolio.html">Portfolio</a>
+                      <a href="/portfolio">Portfolio</a>
                     </li>
                     <li className="has-dropdown">
-                      <a href="blog.html">Blog</a>
+                      <a href="/blog/">Blog</a>
                       <ul className="dropdown">
                         <li>
                           <a href="#">Web Design</a>
@@ -43,10 +47,10 @@ function About() {
                       </ul>
                     </li>
                     <li className="active">
-                      <a href="about.html">About</a>
+                      <a href="/about">About</a>
                     </li>
                     <li>
-                      <a href="contact.html">Contact</a>
+                      <a href="/contact">Contact</a>
                     </li>
                     <li className="btn-cta">
                       <a href="#">

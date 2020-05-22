@@ -1,31 +1,35 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { connect, useSelector, useDispatch } from 'react-redux'
-import { RootState } from './api/rootReducer'
+import { useDispatch } from "react-redux";
+import { Route, Switch } from "react-router-dom";
+import { History } from "history";
+import { ConnectedRouter } from "connected-react-router";
+import { updateAppStatus } from "./api/actions/lifecycle";
 import "./App.css";
-import { updateAppStatus } from './api/actions/lifecycle';
 import { About, Blog, Contact, Home, Portfolio } from "./pages/";
+interface AppProps {
+  history: History;
+}
 
-const App: React.FC = () => {
+const App = ({ history }: AppProps) => {
   const dispatch = useDispatch();
   // const { page } = useSelector(
   //   (state: RootState) => state.currentDisplay
   // );
 
-   // It takes a function
-   useEffect(() => {
+  // It takes a function
+  useEffect(() => {
     // This gets called after every render, by default
     // (the first one, and every one after that)
-    console.log('render!');
+    console.log("render!");
 
     // If you want to implement componentWillUnmount,
     // return a function from here, and React will call
     // it prior to unmounting.
-    dispatch(updateAppStatus('loaded'));
+    dispatch(updateAppStatus("loaded"));
   });
   return (
     <>
-      <Router>
+      <ConnectedRouter history={history}>
         <div className="App">
           <Switch>
             <Route exact path="/">
@@ -46,10 +50,10 @@ const App: React.FC = () => {
             <Route>{"Not found"}</Route>
           </Switch>
         </div>
-      </Router>
+      </ConnectedRouter>
     </>
   );
-}
+};
 
 // const mapStateToProps = function(state: RootState) {
 //   return {

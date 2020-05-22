@@ -5,6 +5,7 @@ export interface CurrentDisplayState {
   status: 'loading' | 'loaded' | 'error'
 }
 
-export const updatePage = createAction<CurrentDisplayState["page"]>('updatePage');
+export const updatePageStart = createAction<CurrentDisplayState["page"]>('updatePageStart');
+export const updatePageComplete = createAction<CurrentDisplayState["page"]>('updatePageComplete');
 
 export const updateAppStatus = createAction<CurrentDisplayState["status"]>('updateAppStatus');
