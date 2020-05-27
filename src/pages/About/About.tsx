@@ -16,7 +16,7 @@ function About() {
               <div className="row">
                 <div className="col-xs-2">
                   <div id="fh5co-logo">
-                    <a href="#" onClick={() => dispatch(updatePageStart("home"))}>
+                    <a id="redux-routing" href="#" onClick={() => dispatch(updatePageStart("portfolio"))}>
                       Air<span>.</span>
                     </a>
                   </div>
